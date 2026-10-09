@@ -1,0 +1,20 @@
+[
+    {
+        "name": "standard user can log in",
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "expected": "success"
+    },
+    {
+        "name": "locked out user is rejected",
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expected": "locked"
+    },
+    {
+        "name": "invalid credentials are rejected",
+        "username": "invalid_user",
+        "password": "wrong_password",
+        "expected": "invalid"
+    }
+]
