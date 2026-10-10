@@ -1,0 +1,44 @@
+[
+    {
+        "name": "standard user can log in",
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "expected": "success",
+        "errorMessage": ""
+    },
+    {
+        "name": "locked out user is rejected",
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expected": "error",
+        "errorMessage": "Epic sadface: Sorry, this user has been locked out."
+    },
+    {
+        "name": "invalid credentials are rejected",
+        "username": "invalid_user",
+        "password": "wrong_password",
+        "expected": "error",
+        "errorMessage": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+        "name": "requires username when both fields are empty",
+        "username": "",
+        "password": "",
+        "expected": "error",
+        "errorMessage": "Epic sadface: Username is required"
+    },
+    {
+        "name": "requires username when only password is provided",
+        "username": "",
+        "password": "secret_sauce",
+        "expected": "error",
+        "errorMessage": "Epic sadface: Username is required"
+    },
+    {
+        "name": "requires password when only username is provided",
+        "username": "standard_user",
+        "password": "",
+        "expected": "error",
+        "errorMessage": "Epic sadface: Password is required"
+    }
+]

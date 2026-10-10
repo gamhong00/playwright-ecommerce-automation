@@ -58,6 +58,33 @@ test('removes one product without removing the other', async ({
     await expect(inventoryPage.cartBadge).toHaveText('1');
 });
 
+test('removes the last product and keeps the cart empty after reopening', async ({
+    inventoryPage,
+    cartPage
+}) => {
+    const productName = products[0].name;
+    await inventoryPage.addToCart(productName);
+    await inventoryPage.openCart();
+    await expect(cartPage.items).toHaveCount(1);
+    await expect(inventoryPage.cartBadge).toHaveText('1');
+
+    await cartPage.removeProduct(productName);
+    await expect(cartPage.items).toHaveCount(0);
+    await expect(inventoryPage.cartBadge).toHaveCount(0);
+
+    // Confirm removal persists when returning to inventory and reopening the cart.
+    await cartPage.continueShopping();
+    await expect(
+        inventoryPage
+            .product(productName)
+            .getByRole('button', { name: 'Add to cart', exact: true })
+    ).toBeVisible();
+    await inventoryPage.openCart();
+    await expect(cartPage.title).toHaveText('Your Cart');
+    await expect(cartPage.items).toHaveCount(0);
+    await expect(inventoryPage.cartBadge).toHaveCount(0);
+});
+
 test('continues shopping while keeping the cart contents', async ({
     page,
     inventoryPage,

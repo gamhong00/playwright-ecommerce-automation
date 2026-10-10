@@ -5,15 +5,15 @@ A personal learning project for UI test automation on
 
 ## Test Coverage
 
-21 test cases executed on Chromium and Firefox, totaling 42 test executions
+25 test cases executed on Chromium and Firefox, totaling 50 test executions
 before retries.
 
-| Area      | Cases | Coverage                                                         |
-| --------- | ----: | ---------------------------------------------------------------- |
-| Login     |     3 | Successful login, locked account, invalid credentials            |
-| Inventory |     6 | Product catalog, four sorting options, add/remove product        |
-| Cart      |     5 | Empty cart, product details, removal, navigation, checkout entry |
-| Checkout  |     7 | Required fields, order totals, completion, cancellation          |
+| Area      | Cases | Coverage                                                                             |
+| --------- | ----: | ------------------------------------------------------------------------------------ |
+| Login     |     6 | Successful login, locked account, invalid and missing credentials                    |
+| Inventory |     6 | Product catalog, four sorting options, add/remove product                            |
+| Cart      |     6 | Empty cart, product details, removal including last item, navigation, checkout entry |
+| Checkout  |     7 | Required fields, order totals, completion, cancellation                              |
 
 ## Project Structure
 
