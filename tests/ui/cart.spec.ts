@@ -11,9 +11,9 @@ test.beforeEach(async ({ loginPage, inventoryPage }) => {
 test('displays an empty cart', async ({ page, inventoryPage, cartPage }) => {
     await inventoryPage.openCart();
     await expect(page).toHaveURL('/cart.html');
-    // await expect(cartPage.title).toHaveText('Your Cart');
+    await expect(cartPage.title).toHaveText('Your Cart');
     // Intentionally fail to verify screenshot capture.
-    await expect(cartPage.title).toHaveText('Wrong title');
+    // await expect(cartPage.title).toHaveText('Wrong title');
     await expect(cartPage.items).toHaveCount(0);
     await expect(inventoryPage.cartBadge).toHaveCount(0);
 });
